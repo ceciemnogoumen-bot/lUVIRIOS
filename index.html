@@ -1,0 +1,301 @@
+﻿<!DOCTYPE html>
+<html lang="bg">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Luvioros Pro | Гейминг Платформа</title>
+
+    <!-- Изчистен, модерен геймърски шрифт -->
+    <link href="https://googleapis.com" rel="stylesheet">
+
+    <style>
+        /* Базови настройки на страницата */
+        * {
+            box-sizing: border-box;
+            margin: 0;
+            padding: 0;
+            font-family: 'Plus Jakarta Sans', sans-serif;
+        }
+
+        body {
+            background-color: #0b0c10; /* Дълбок тъмен фон */
+            color: #94a3b8;
+            min-height: 100vh;
+            padding-bottom: 80px;
+        }
+
+        /* Горно меню (Навигация) */
+        .navbar {
+            display: flex;
+            justify-content: space-between;
+            align-items: center;
+            padding: 20px 8%;
+            background-color: #10121a; /* Малко по-светло сиво за контраст */
+            border-bottom: 1px solid rgba(255, 255, 255, 0.05);
+        }
+
+        .logo {
+            font-size: 22px;
+            font-weight: 800;
+            color: #ffffff;
+            letter-spacing: -0.5px;
+        }
+
+            .logo span {
+                color: #38bdf8; /* Син акцент */
+            }
+
+        .nav-links a {
+            color: #94a3b8;
+            text-decoration: none;
+            margin-left: 30px;
+            font-size: 15px;
+            font-weight: 600;
+            transition: color 0.2s ease;
+        }
+
+            .nav-links a:hover {
+                color: #ffffff;
+            }
+
+        /* Основен голям Банер (Hero Section) */
+        .hero {
+            text-align: center;
+            padding: 100px 20px 60px 20px;
+            max-width: 800px;
+            margin: 0 auto;
+        }
+
+            .hero h1 {
+                font-size: 52px;
+                font-weight: 800;
+                color: #ffffff;
+                line-height: 1.1;
+                margin-bottom: 20px;
+                letter-spacing: -1px;
+            }
+
+                .hero h1 span {
+                    color: #38bdf8;
+                }
+
+            .hero p {
+                font-size: 18px;
+                color: #64748b;
+                margin-bottom: 40px;
+                line-height: 1.6;
+            }
+
+        /* Големият централен бутон */
+        .btn-main {
+            background-color: #38bdf8;
+            color: #0b0c10;
+            padding: 16px 36px;
+            font-size: 16px;
+            font-weight: 700;
+            text-decoration: none;
+            border-radius: 8px;
+            box-shadow: 0 4px 20px rgba(56, 189, 248, 0.3);
+            transition: all 0.2s ease;
+            display: inline-block;
+        }
+
+            .btn-main:hover {
+                background-color: #0ea5e9;
+                transform: translateY(-2px);
+                box-shadow: 0 6px 24px rgba(56, 189, 248, 0.4);
+            }
+
+        /* Лента със статистика (Като истинските сайтове) */
+        .stats-bar {
+            display: flex;
+            justify-content: space-around;
+            max-width: 900px;
+            margin: 40px auto 80px auto;
+            padding: 30px;
+            background-color: #10121a;
+            border-radius: 12px;
+            border: 1px solid rgba(255, 255, 255, 0.03);
+        }
+
+        .stat-item h3 {
+            font-size: 32px;
+            color: #ffffff;
+            font-weight: 800;
+            margin-bottom: 5px;
+        }
+
+        .stat-item p {
+            font-size: 13px;
+            color: #64748b;
+            text-transform: uppercase;
+            letter-spacing: 1px;
+            font-weight: 600;
+        }
+
+        /* Решетка с карти за игрите */
+        .grid-title {
+            text-align: center;
+            color: #ffffff;
+            font-size: 24px;
+            font-weight: 700;
+            margin-bottom: 30px;
+        }
+
+        .game-grid {
+            display: grid;
+            grid-template-columns: repeat(auto-fit, minmax(280px, 1fr));
+            gap: 25px;
+            max-width: 1100px;
+            margin: 0 auto;
+            padding: 0 40px;
+        }
+
+        /* Сериозни и чисти карти за игрите */
+        .game-card {
+            background-color: #10121a;
+            border: 1px solid rgba(255, 255, 255, 0.03);
+            border-radius: 12px;
+            padding: 24px;
+            display: flex;
+            flex-direction: column;
+            justify-content: space-between;
+            min-height: 180px;
+            transition: border-color 0.2s ease;
+        }
+
+            .game-card:hover {
+                border-color: rgba(56, 189, 248, 0.3);
+            }
+
+        .card-header {
+            display: flex;
+            justify-content: space-between;
+            align-items: center;
+            margin-bottom: 10px;
+        }
+
+        .game-name {
+            color: #ffffff;
+            font-size: 18px;
+            font-weight: 700;
+        }
+
+        .status-tag {
+            font-size: 11px;
+            background-color: rgba(56, 189, 248, 0.1);
+            color: #38bdf8;
+            padding: 4px 8px;
+            border-radius: 6px;
+            font-weight: 700;
+            text-transform: uppercase;
+        }
+
+        .game-card p {
+            font-size: 14px;
+            color: #64748b;
+            margin-bottom: 20px;
+        }
+
+        /* Малките бутони за стартиране */
+        .btn-card {
+            background-color: #1e2230;
+            color: #ffffff;
+            text-decoration: none;
+            padding: 12px;
+            border-radius: 8px;
+            font-size: 14px;
+            font-weight: 600;
+            text-align: center;
+            transition: background-color 0.2s ease;
+        }
+
+            .btn-card:hover {
+                background-color: #38bdf8;
+                color: #0b0c10;
+            }
+    </style>
+</head>
+<body>
+
+    <!-- Навигационна лента -->
+    <div class="navbar">
+        <div class="logo">Luvioros<span>.Pro</span></div>
+        <div class="nav-links">
+            <a href="index.html">Начало</a>
+            <a href="cs.html">Counter-Strike</a>
+            <a href="gta.html">GTA</a>
+            <a href="fortnite.html">Fortnite</a>
+            <a href="retro.html">Ретро игри</a>
+        </div>
+    </div>
+
+    <!-- Главен блок с бутон -->
+    <div class="hero">
+        <h1>Elevate Your <span>Gaming Archive</span></h1>
+        <p>Добре дошли в професионалната платформа за проследяване на историята на видеоигрите. Пълна база данни със софтуерни модули от 1990 г. до днес.</p>
+        <a href="#modules" class="btn-main">Разгледай модулите</a>
+    </div>
+
+    <!-- Секция със статистика (Добавя сериозен облик) -->
+    <div class="stats-bar">
+        <div class="stat-item">
+            <h3>1990+</h3>
+            <p>Година на старт</p>
+        </div>
+        <div class="stat-item">
+            <h3>4</h3>
+            <p>Активни страници</p>
+        </div>
+        <div class="stat-item">
+            <h3>100%</h3>
+            <p>Зареден код</p>
+        </div>
+    </div>
+
+    <!-- Решетката с Игри -->
+    <div id="modules">
+        <h2 class="grid-title">Налични Гейминг Бази Данни</h2>
+        <div class="game-grid">
+
+            <div class="game-card">
+                <div class="card-header">
+                    <div class="game-name">Counter-Strike</div>
+                    <span class="status-tag">FPS</span>
+                </div>
+                <p>Хронология и еволюция от мода на Half-Life през 1999 г. до днешния CS2.</p>
+                <a href="cs.html" class="btn-card">Отвори страницата</a>
+            </div>
+
+            <div class="game-card">
+                <div class="card-header">
+                    <div class="game-name">Grand Theft Auto</div>
+                    <span class="status-tag">3D World</span>
+                </div>
+                <p>Историята на Rockstar Games – от изгледа отгоре до най-печелившия хит GTA V.</p>
+                <a href="gta.html" class="btn-card">Отвори страницата</a>
+            </div>
+
+            <div class="game-card">
+                <div class="card-header">
+                    <div class="game-name">Fortnite</div>
+                    <span class="status-tag">Royale</span>
+                </div>
+                <p>Развитие на Battle Royale режима, поп културата и масивните концерти на живо.</p>
+                <a href="fortnite.html" class="btn-card">Отвори страницата</a>
+            </div>
+
+            <div class="game-card">
+                <div class="card-header">
+                    <div class="game-name">Ретро Игри</div>
+                    <span class="status-tag">90s Класика</span>
+                </div>
+                <p>Златната ера на гейминга – раждането на заглавия като DOOM, Quake и StarCraft.</p>
+                <a href="retro.html" class="btn-card">Отвори страницата</a>
+            </div>
+
+        </div>
+    </div>
+
+</body>
+</html>
